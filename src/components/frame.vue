@@ -1,13 +1,14 @@
 <template>
-    <Modal
-            v-model="visible"
-            title="Common Modal dialog box title"
-            @on-ok="ok"
-            @on-cancel="cancel">
-        <p>Content of dialog</p>
-        <p>Content of dialog</p>
-        <p>Content of dialog</p>
-    </Modal>
+   <div>
+       <Modal
+               v-model="visible"
+               title="Common Modal dialog box title"
+               @on-visible-change="change">
+           <p>Content of dialog</p>
+           <p>Content of dialog</p>
+           <p>Content of dialog</p>
+       </Modal>
+   </div>
 </template>
 
 <script>
@@ -20,13 +21,8 @@
             }
         },
         methods:{
-            ok () {
-                this.$Message.info('Clicked ok');
-                this.$emit("update:visible",false)
-            },
-            cancel () {
-                this.$Message.info('Clicked cancel');
-                this.$emit("update:visible",false)
+            change(val){
+                this.$emit("update:visible",val)
             }
         }
     }

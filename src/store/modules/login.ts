@@ -5,8 +5,8 @@ const state={
 const mutations={
     LOGIN(state:any,form:any){
         state.user=form.user;
-        localStorage.setItem('isLogin','true')
-        localStorage.setItem('user',form.user)
+        localStorage.setItem('isLogin','true');
+        localStorage.setItem('user',form.user);
     }
 }
 const actions={
