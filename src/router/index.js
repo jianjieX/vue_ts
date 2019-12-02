@@ -8,12 +8,18 @@ const routes = [
         path: '/',
         alias: '/home',
         name: 'home',
-        component: Home
+        component: Home,
+        meta: {
+            isLogin: true
+        }
     },
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login,
+        meta: {
+            isLogin: false
+        }
     },
     {
         path: '/about',

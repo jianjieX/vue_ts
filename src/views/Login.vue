@@ -44,14 +44,14 @@
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        let _this=this;
                         this.$store.dispatch('login',{
                             user:this.formInline.user,
-                            password:this.formInline.password,
-                            success(){
-                                _this.$Message.success('恭喜小可爱登录成功~');
-                                _this.$router.push(process.env.NODE_ENV === 'development' ? '/' : '/home')
-                            }
+                            password:this.formInline.password
+                        }).then(()=>{
+                            this.$Message.success('恭喜小可爱登录成功~');
+                            this.$router.push('/home').catch(err=>{
+                                console.log(err)
+                            });
                         })
                     } else {
                         this.$Message.error('出错了QAQ!');
@@ -65,9 +65,7 @@
             })
         },
         mounted(){
-            if(this.isLogin){
-                this.$router.push('/')
-            }
+
         }
     }
 </script>

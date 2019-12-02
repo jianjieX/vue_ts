@@ -8,6 +8,20 @@ Vue.config.productionTip = false;
 import axios from 'axios';
 Vue.use(ViewUI);
 Vue.prototype.$ajax = axios;
+router.beforeEach((to, from, next) => {
+    if (to.meta.isLogin) {
+        let state = store.state;
+        if (state.Login.isLogin) {
+            next();
+        }
+        else {
+            next('/login');
+        }
+    }
+    else {
+        next();
+    }
+});
 new Vue({
     router,
     store,

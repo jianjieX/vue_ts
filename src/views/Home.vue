@@ -5,16 +5,21 @@
     </div>
     <div>
       <Button type="success" @click="showFrame()">问卷调查</Button>
-      <Button type="warning">退出</Button>
+      <Button type="warning" @click="outLogin()">退出</Button>
       <questFrame :visible.sync="visible"></questFrame>
       <!--<Test>我是插槽内容{{visible}}</Test>-->
+      <!--<Test>-->
+        <!--<template v-slot:header>-->
+            <!--<h1 style="color: red">这里是头部</h1>-->
+        <!--</template>-->
+       <!--<h1 style="color: orange">不包含名字的插槽</h1>-->
+        <!--<template v-slot:footer>-->
+            <!--<h1 style="color: cornflowerblue">这里是footer</h1>-->
+        <!--</template>-->
+      <!--</Test>-->
       <Test>
-        <template v-slot:header>
-            <h1 style="color: red">这里是头部</h1>
-        </template>
-       <h1 style="color: orange">不包含名字的插槽</h1>
-        <template v-slot:footer>
-            <h1 style="color: cornflowerblue">这里是footer</h1>
+        <template v-slot="slotProps">
+          {{slotProps.user.firstName }}
         </template>
       </Test>
     </div>
@@ -46,6 +51,12 @@ export default {
         },
         showFrame(){
             this.visible=true
+        },
+        outLogin(){
+            this.$store.dispatch('outLogin').then(()=>{
+                this.$Message.success('已退出登录~');
+                this.$router.push('/login')
+            })
         }
     },
     computed:{
