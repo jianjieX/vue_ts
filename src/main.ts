@@ -9,15 +9,11 @@ import axios from 'axios';
 Vue.use(ViewUI);
 Vue.prototype.$ajax=axios;
 router.beforeEach((to,from,next)=>{
-    if(to.meta.isLogin){
-      let state:any=store.state;
-      if(state.Login.isLogin){
-        next();
-      }else{
+    let state:any=store.state;
+    if(!state.Login.isLogin&&to.meta.isLogin&&from.path!='/login'){
         next('/login');
-      }
     }else{
-      next();
+        next();
     }
 })
 new Vue({
