@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div id="nav">
+      <router-link to="/about">关于作者</router-link>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -11,9 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-html,body{
-  background: deepskyblue!important;
 }
 #nav {
   padding: 30px;
