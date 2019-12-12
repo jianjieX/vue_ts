@@ -31,7 +31,7 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 import {mapState} from 'vuex';
 import questFrame from '../components/frame';
-import Test from '../views/test'
+import Test from '../views/test';
 export default {
     components: {
         questFrame,

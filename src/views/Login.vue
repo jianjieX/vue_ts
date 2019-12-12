@@ -34,7 +34,7 @@
                         { required: true, message: '小可爱，不能做无名氏哦', trigger: 'blur' }
                     ],
                     password: [
-                        { required: true, message: '小可爱，不填密码是没办法成功的呦~', trigger: 'blur' },
+                        { required: true, message: '不填密码是没办法成功的呦~', trigger: 'blur' },
                         { type: 'string', min: 6, message: '密码最多六个字符哦~', trigger: 'blur' }
                     ]
                 }
